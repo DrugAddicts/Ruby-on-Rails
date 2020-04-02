@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>  Laboratory 1</title>
+<meta charset="utf-8">
+</head>
+
+<body>
+<div>
+<h3>ЛР 1</h3>
+	<h3>Серебренников Олег</h3>
+<form action="" method="get">
+	<input type="text" id='addr' value=""/> <br />
+	<input type="text" id="n" value="0" /><br />
+<input type="button" value="Отправить"  onclick="res()"/>
+</form> 
+</div>
+<p>Найденное слово:</p>
+<div id ='result'></div>
+<script>
+	function res() {
+        document.getElementById('result').innerHTML = '';
+        var regexp = /[0-9]/;
+        var ch = 0;
+        text = document.getElementById('addr').value.split(' ');
+        n = document.getElementById('n').value;
+         for (i = 0; i < text.length; i++) {
+            if (regexp.test(text[i]) == false) {
+                ch ++;
+			}
+			if (ch == n) {
+                document.getElementById('result').innerHTML = text[i];
+                break;
+			}
+        }
+        if ((ch == 0) || (n<=0) || (n>text.length)) {document.getElementById('result').innerHTML = 'В строке нет требуемых слов';}
+        if ((ch> 0) && (ch<n)) {document.getElementById('result').innerHTML = 'В строке  слова с таким номером';}
+    }
+</script>
+</body>
+</html>
